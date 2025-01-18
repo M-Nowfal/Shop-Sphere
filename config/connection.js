@@ -1,6 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const mongoConnectionString = "mongodb+srv://nowfalmmuhammed:PdskykeZrt1TPHBy@cluster0.ylmrd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-// const mongoLocalString = "mongodb://127.0.0.1:27017";
+const mongoLocalString = "mongodb://127.0.0.1:27017";
 
 const state = {
     db : null
@@ -9,7 +8,7 @@ const state = {
 module.exports.connect = async (done)=>{
     if(state.db) return done();
     try{
-        state.db = await MongoClient.connect(mongoConnectionString);
+        state.db = await MongoClient.connect(mongoLocalString);
         done();
     }catch(err){
         done(err);
