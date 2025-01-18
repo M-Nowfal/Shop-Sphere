@@ -1,0 +1,26 @@
+<style>
+    .container{
+        margin-top: 80px;
+    }
+
+</style>
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 bg-dark p-3 rounded text-center">
+                <h3 class="text-danger m-2">{{message}}</h3>
+                {{#if loginpage}}
+                <a href="/sellers/sign-in" class="btn btn-success m-2">Sign-in</a>
+                {{/if}}
+                {{#if loginpageuser}}
+                <a href="/users/log-in" class="btn btn-success m-2">Log-in</a>
+                {{/if}}
+                {{#if seller}}
+                <a href="/sellers/login" class="btn btn-success m-2">Go to Seller Page</a>
+                {{else}}
+                <a href="/" class="btn btn-success m-2">Go to Dashboard</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>

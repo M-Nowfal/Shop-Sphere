@@ -1,0 +1,71 @@
+<style>
+    .formcontent{
+        box-shadow: 0px 0px 20px black;
+        border: solid 1px rgb(27, 150, 76);
+        margin-top: 75px;
+    }
+</style>
+
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <div class="col-10 bg-dark rounded formcontent">
+            <h4 class="text-center text-warning mt-1">Sign-in</h4>
+            <form method="post" action="/sellers/signin" onkeyup="allowSignBtn()">
+                <div class="d-flex flex-wrap">
+                    <div class="col-12 col-sm-6 p-1">
+                        <label for="userfname" class="text-success p-2">First Name</label>
+                        <input type="text" class="form-control" name="fname" placeholder="First name" id="fname">
+                    </div>
+                    <div class="col-12 col-sm-6 p-1">
+                        <label for="userlname" class="text-success p-2">Last Name</label>
+                        <input type="text" class="form-control" name="lname" placeholder="Last name" id="lname">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12 p-1">
+                        <label for="useremail" class="text-success p-2">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+                    </div>
+                    <div class="form-group col-12 p-1">
+                        <label for="userphnumber" class="text-success p-2">Mobile Number</label>
+                        <input type="number" class="form-control" name="phnumber" placeholder="Phone Number" id="mbnumber" onkeyup="validateNumber()">
+                        <div>
+                            <p id="mobileno" class="text-danger d-none">Enter Valid 10 digit Phone Number</p>
+                        </div>
+                    </div>
+                    <div class="form-group col-12 p-1">
+                        <label for="userusername" class="text-success p-2">Seller ID</label>
+                        <input type="text" class="form-control" name="sellerid" placeholder="@sellerID12.." id="userName" onkeyup="validateUserName()">
+                    </div>
+                    <div class="form-group col-12 p-1">
+                        <label for="userpassword" class="text-success p-2">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Password" id="password" onkeyup="validatePassword()">
+                        <div>
+                            <p id="lengthnotmatch" class="text-danger d-none">Password must be between 8 and 14 characters long.</p>
+                            <p id="oneuppercase" class="text-danger d-none">Password must contain at least one uppercase letter.</p>
+                            <p id="onelowercase" class="text-danger d-none">Password must contain at least one lowercase letter.</p>
+                            <p id="onedigit" class="text-danger d-none">Password must contain at least one digit.</p>
+                            <p id="onespchar" class="text-danger d-none">Password must contain at least one special character.</p>
+                        </div>
+                    </div>
+                        
+                    <div class="form-group col-12 p-1">
+                        <label for="userconfirmpassword" class="text-success p-2">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="Re-Enter Password" id="confirmpassword" onkeyup="confirmPassword()">
+                        <div>
+                            <p id="confirmpasswordnotmatch" class="text-danger d-none">Confirm Password Should match the Password</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn disabled btn-success ps-5 pe-5 mt-3" id="signbtn">Sign in</button>
+                </div>
+            </form>
+            <div class="text-end mb-2">
+                <a href="/sellers/login" class="text-decoration-none m-2">already have an account</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/validatesignin.js"></script>

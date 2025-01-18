@@ -1,0 +1,76 @@
+<style>
+    .container {
+        margin-top: 70px;
+    }
+
+    .addproductbtn {
+        position: fixed;
+        left: 92%;
+        transform: translateX(-50%);
+        bottom: 7%;
+    }
+    ul{
+        list-style-type: none;
+        margin: 0%;
+    }
+    #contaner{
+        position: fixed;
+        width: 100px;
+        text-align: center;
+        box-shadow: 0px 0px 10px black;
+    }
+</style>
+
+<div class="container">
+    <table class="table mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="bg-dark text-success">NO</th>
+                <th scope="col" class="bg-dark text-success">Name</th>
+                <th scope="col" class="bg-dark text-success">Price</th>
+                <th scope="col" class="bg-dark text-success">Description</th>
+                <th scope="col" class="bg-dark text-success">Picture</th>
+                <th scope="col" class="bg-dark text-success">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+            <tr>
+                <th scope="row">{{this.no}}</th>
+                <td>{{this.title_name}}</td>
+                <td><sup>₹</sup>{{this.price}}</td>
+                <td>{{this.description}}</td>
+                <td><img src="{{this.image}}" alt=".." style="width: 40px;"></td>
+                <td class="editbtn"><i class="fa-solid fa-ellipsis-v" class="text-decoration-none text-dark" style="cursor: pointer;"></i></td>
+                <div class="rounded bg-light text-center" id="contaner" style="display: none;">
+                    <ul class="justify-content-center">
+                        <li><a href="/sellers/edit/{{this.no}}" class="text-decoration-none text-dark">Edit</a><br></li>
+                        <li><a href="/sellers/delete/{{this.no}}" onclick="return confirm('Are you Sure to delete the Product')" class="text-decoration-none text-dark">Delete</a></li>
+                    </ul>
+                </div>
+            </tr>
+            {{/each}}
+        </tbody>
+        <div class="text-end">
+            <a href="/sellers/addproducts">
+                <button class="btn btn-success rounded-circle p-3 fw-bold fs-2 me-3 addproductbtn" title="Add Product"><i class="fa-solid fa-plus"></i></button>
+            </a>
+        </div>
+    </table>
+</div>
+
+<script>
+    document.querySelectorAll('.editbtn').forEach((btn)=>{
+        btn.addEventListener('click',(event)=>{
+            let rect = event.target.getBoundingClientRect();
+            document.getElementById('contaner').style.top = `${rect.bottom}px`;
+            document.getElementById('contaner').style.left = `${rect.left}px`;
+            document.getElementById('contaner').style.display = ((document.getElementById('contaner').style.display === 'block')? 'none':'block');
+            event.stopPropagation();
+        })
+    })
+    document.addEventListener('click',()=>{
+        document.getElementById('contaner').style.display = 'none';
+        event.stopPropagation();
+    })
+</script>

@@ -1,0 +1,52 @@
+<style>
+    .options {
+        margin-top: 80px;
+    }
+    p{
+        transition: 0.3s;
+        width: 95%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    p:hover {
+        margin-left: 20px;
+        margin-right: 30px;
+        background-color: rgb(19, 19, 19);
+        border-radius: 10px;
+        width: 95%;
+        transition: 0.3s;
+    }
+</style>
+<div class="container">
+    <div class="justify-content-center bg-dark rounded options">
+        <div class="row justify-content-center">
+            {{#if loggedin}}
+            {{#if seller}}
+            <a href="/sellers/sign-out" class="text-success mt-2 text-decoration-none">
+                <p class="fs-4 ps-2">Sign-Out</p>
+            </a>
+            <a href="/sellers/login" class="text-success mt-2 text-decoration-none">
+                <p class="fs-4 ps-2">Go to Seller Product View Page</p>
+            </a>
+            {{else}}
+            <a  href="/users/sign-out" class="text-success mt-2 text-decoration-none">
+                <p class="fs-4 ps-2">Sign-Out</p>
+            </a>
+            {{/if}}
+            {{/if}}
+        </div>
+        {{#if seller}}
+        {{else}}
+        <div class="row">
+            <a href="/sellers/login" class="text-success mb-2 mt-2 text-decoration-none">
+                <p class="fs-4 ps-2">Login as Seller</p>
+            </a>
+        </div>
+        {{/if}}
+        <div class="row">
+            <a href="/" class="text-success mb-2 text-decoration-none">
+                <p class="fs-4 ps-2">Go Back to Shop</p>
+            </a>
+        </div>
+    </div>
+</div>

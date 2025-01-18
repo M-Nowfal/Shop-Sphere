@@ -1,0 +1,83 @@
+<style>
+    .container {
+        margin-top: 80px;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+</style>
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-sm-8 justify-content-center">
+                <div class="card text-center mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-10">
+                            <img src="{{productinfo.image}}" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col-10">
+                            <div class="card-body">
+                                <h5 class="card-title">{{productinfo.title_name}}</h5>
+                                <h3 class="card-title"><sup><span
+                                            class="fs-6 text-secondary">₹</span></sup>{{productinfo.price}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{productinfo.description}}</p>
+                    </div>
+                </div>
+                <hr class="text-dark mt-5 mb-5">
+                <div class="text-start">
+                    <h2 class="text-success">Order Details</h2>
+                    <ul>
+                        <li>
+                            <h5 class="text-danger">Free Shipping</h5>
+                        </li>
+                        <li>
+                            <h5 class="text-dark">Delivery Fee <span class="text-warning">₹40</span></h5>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="text-dark mt-5 mb-5">
+                <div class="text-end">
+                    <div class="container justify-content-end">
+                        <div class="row justify-content-end">
+                            <div class="col-8">
+                                <table class="table mt-3">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><h5 class="text-dark">Product Price</h5></td>
+                                            <td class="text-success"><h5>{{productinfo.price}}</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h5 class="text-dark">Delevery fee</h5></td>
+                                            <td class="text-danger"><h5>₹40</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h4 class="text-primary">Total Amount </h4></td>
+                                            <td class="text-warning"><h5>₹{{total}}</h5></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <form action="/users/proceedtobuy" method="post">
+                        <button type="submit" name="buy" value="{{productinfo.no}}"
+                            class="btn btn-success rounded p-2 mt-5 mb-5" style="width: 80%;">Proceed</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

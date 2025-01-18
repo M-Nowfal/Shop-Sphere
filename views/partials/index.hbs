@@ -1,0 +1,171 @@
+<style>
+    .card img {
+        height: 300px;
+        object-fit: contain;
+        margin: 5px auto;
+        cursor: pointer;
+    }
+
+    .btn-orange {
+        background-color: rgb(255, 123, 0);
+    }
+
+    .btn-orange:hover {
+        background-color: rgb(255, 167, 44);
+    }
+</style>
+
+<section>
+    <h2 class="p-2 mt-5 pt-3" id="mobile-items">Mobile Phone</h2>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            {{#each mobiles}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card text-center mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-6 col-sm-12">
+                            <img src="{{this.image}}" class="card-img-top" alt="..."
+                                style="height: 150px; width: 150px">
+                        </div>
+                        <div class="col-6 col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title_name}}</h5>
+                                <h3 class="card-title"><sup><span class="fs-6 text-danger">₹</span></sup>{{this.price}}</h3>
+                                <p class="card-text">{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if this.seller}}
+                    {{else}}
+                    <form action="users/add-to-cart" method="post">
+                        <div class="card-body">
+                            <button type="submit" name="cartno" value="{{this.no}}" class="btn btn-orange"
+                                style="width: 80%;">Add to Cart</button>
+                        </div>
+                    </form>
+                    <form action="/users/buyitem" method="post">
+                        <button type="submit" name="buyno" value="{{this.no}}" class="btn btn-warning"
+                            style="width: 80%;">Buy Now</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <h2 class="p-2 mt-5 pt-3" id="laptop-items">Laptops</h2>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            {{#each laptops}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card text-center mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-6 col-sm-12">
+                            <img src="{{this.image}}" class="card-img-top" alt="..."
+                                style="height: 150px; width: 150px">
+                        </div>
+                        <div class="col-6 col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title_name}}</h5>
+                                <h3 class="card-title"><sup><span class="fs-6 text-danger">₹</span></sup>{{this.price}}</h3>
+                                <p class="card-text">{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if this.seller}}
+                    {{else}}
+                    <form action="users/add-to-cart" method="post">
+                        <div class="card-body">
+                            <button type="submit" name="cartno" value="{{this.no}}" class="btn btn-orange"
+                                style="width: 80%;">Add to Cart</button>
+                        </div>
+                    </form>
+                    <form action="/users/buyitem" method="post">
+                        <button type="submit" name="buyno" value="{{this.no}}" class="btn btn-warning"
+                            style="width: 80%;">Buy Now</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <h2 class="p-2 mt-5 pt-3" id="cloth-items">Clothes</h2>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            {{#each clothes}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card text-center mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-6 col-sm-12">
+                            <img src="{{this.image}}" class="card-img-top" alt="..."
+                                style="height: 150px; width: 150px">
+                        </div>
+                        <div class="col-6 col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title_name}}</h5>
+                                <h3 class="card-title"><sup><span class="fs-6 text-danger">₹</span></sup>{{this.price}}</h3>
+                                <p class="card-text">{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if this.seller}}
+                    {{else}}
+                    <form action="users/add-to-cart" method="post">
+                        <div class="card-body">
+                            <button type="submit" name="cartno" value="{{this.no}}" class="btn btn-orange"
+                                style="width: 80%;">Add to Cart</button>
+                        </div>
+                    </form>
+                    <form action="/users/buyitem" method="post">
+                        <button type="submit" name="buyno" value="{{this.no}}" class="btn btn-warning"
+                            style="width: 80%;">Buy Now</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <h2 class="p-2 mt-5 pt-3" id="other-items">Other Products</h2>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            {{#each others}}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card text-center mb-4">
+                    <div class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="col-6 col-sm-12">
+                            <img src="{{this.image}}" class="card-img-top" alt="..."
+                                style="height: 150px; width: 150px">
+                        </div>
+                        <div class="col-6 col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title_name}}</h5>
+                                <h3 class="card-title"><sup><span class="fs-6 text-danger">₹</span></sup>{{this.price}}</h3>
+                                <p class="card-text">{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if this.seller}}
+                    {{else}}
+                    <form action="users/add-to-cart" method="post">
+                        <div class="card-body">
+                            <button type="submit" name="cartno" value="{{this.no}}" class="btn btn-orange"
+                                style="width: 80%;">Add to Cart</button>
+                        </div>
+                    </form>
+                    <form action="/users/buyitem" method="post">
+                        <button type="submit" name="buyno" value="{{this.no}}" class="btn btn-warning"
+                            style="width: 80%;">Buy Now</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <br>
+</section>

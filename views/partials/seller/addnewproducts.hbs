@@ -1,0 +1,78 @@
+<style>
+    .addproductform {
+        background-color: rgb(54, 54, 54);
+        border-radius: 20px;
+        padding: 15px;
+        box-shadow: 0px 0px 20px black;
+    }
+</style>
+<section>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-10 col-sm-6 addproductform">
+                <h4 class="text-center text-warning mt-1">Product Details</h4>
+                <form action="/sellers/add-products" method="post" enctype="multipart/form-data" onkeyup="allowAddBtn()">
+                    <div class="form-group">
+                        <label for="getproductname" class="text-success m-2">Seller ID</label>
+                        <input type="text" class="form-control" name="sellerid" placeholder="@sellerid12.." id="sellerID">
+                    </div>
+                    <div class="form-group">
+                        <label for="getselleremail" class="text-success m-2">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="example@email.com" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="getproductname" class="text-success m-2">Product Name</label>
+                        <input type="text" class="form-control" name="title_name" placeholder="Enter Product Name" id="pname">
+                    </div>
+                    <div class="d-flex flex-wrap">
+                        <div class="col-12  col-sm-6">
+                            <div class="form-group">
+                                <label for="getproductname" class="text-success m-2">Category</label><br>
+                                <select name="category" class="dropdownmenu" style="width: 99%; height: 38px; border-radius: 7px" id="categ" onclick="allowAddBtn()">
+                                    <option>Select</option>
+                                    <option value="Mobile">Mobile</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Clothes">Clothes</option>
+                                    <option value="Others">Other Products</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="getproductprice" class="text-success m-2">Product Price</label>
+                                <input type="number" class="form-control" name="price"placeholder="Enter Product Price" id="price">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="productdescription" class="text-success m-2">Description</label>
+                        <input type="type" class="form-control" name="description" placeholder="Enter Description" id="descrip">
+                    </div>
+                    <div class="form-group">
+                        <label for="getproductimage" class="text-success m-2">Product Image</label>
+                        <input type="file" class="form-control" name="image" placeholder="Choose Image" id="image">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success disabled mt-5 ps-5 pe-5" id="submitbtn">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function allowAddBtn(){
+        let pname = document.getElementById('pname').value;
+        let price = document.getElementById('price').value;
+        let categ = document.getElementById('categ').value;
+        let des = document.getElementById('descrip').value;
+        let img = document.getElementById('image').value;
+        let ema = document.getElementById('email').value;
+        if(pname != "" && price != "" && categ != "Select" && des != "" && ema != ""){
+            document.getElementById('submitbtn').classList.remove('disabled');
+        }else{
+            document.getElementById('submitbtn').classList.add('disabled');
+        }
+    }
+</script>
